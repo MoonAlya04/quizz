@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { motion } from 'framer-motion';
-import { Button } from '../components/ui/Button';
 import QuizResults from '../components/quiz/QuizResults';
 import QuizMascot from '../components/quiz/QuizMascot';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Cards';
 import { ArrowLeft, ArrowRight, Play, Star } from 'lucide-react';
 import QuizProgress from '../components/quiz/QuizProgress';
 import AnswerSlider from '../components/quiz/AnswerSlider';
-import { Badge } from '../components/ui/badge';
+import Button from '../components/ui/Button';
+import Badge from '../components/ui/Badge';
 
-
-
-
+    
 
 const QUIZ_QUESTIONS = [
     { question: "You find yelling to be", left: "Difficult", right: "Natural", dimension: "introvert_extrovert", leftTrait: "introvert", rightTrait: "extrovert" },
@@ -61,7 +59,7 @@ export default function Quiz() {
         setCurrentQuestion(0);
         setAnswers(new Array(QUIZ_QUESTIONS.length).fill(null));
     };
-    <Button />
+    <Button/>
 
     const handleAnswerChange = (value) => {
         const newAnswers = [...answers];

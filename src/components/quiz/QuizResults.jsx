@@ -1,11 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
-import { Button } from '@/components/ui/Button';
+// import { CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+// import { Badge } from '@/components/ui/badge';
+// import { Progress } from '@/components/ui/progress';
+// import { Button } from '@/components/ui/Button';
 import { Share2, Download, RefreshCw, Sparkles } from 'lucide-react';
 import QuizMascot from './QuizMascot';
+import Button from '../ui/Button';
+import Badge from '../ui/Badge';
+import Progress from '../ui/progress';
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/Cards';
+// import { Card } from '../ui/Cards';
 
 const PERSONALITY_DESCRIPTIONS = {
     'ENFJ': {
