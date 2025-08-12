@@ -126,23 +126,46 @@ const PERSONALITY_DESCRIPTIONS = {
 const LEARNING_STYLE_DESCRIPTIONS = {
     visual: {
         title: 'Visual Learner',
-        description: 'You learn best through seeing and visualizing information.',
+        description: 'You learn best through seeing, visualizing, and using spatial understanding.',
+        strengths: ['Strong memory for images', 'Good at interpreting charts', 'Can quickly spot patterns'],
+        challenges: ['May struggle with purely verbal explanations', 'Needs time to visualize complex concepts'],
         tips: ['Use colorful notes and diagrams', 'Watch educational videos', 'Create mind maps', 'Use flashcards with images'],
         icon: '👀'
     },
     auditory: {
         title: 'Auditory Learner',
-        description: 'You learn best through listening and discussing.',
-        tips: ['Listen to podcasts and audiobooks', 'Study with music', 'Join discussion groups', 'Read aloud'],
+        description: 'You learn best through listening, speaking, and discussing ideas.',
+        strengths: ['Excellent listening skills', 'Good at remembering spoken instructions', 'Enjoys group discussions'],
+        challenges: ['Can lose focus when reading silently', 'Needs auditory reinforcement to retain information'],
+        tips: ['Listen to podcasts and audiobooks', 'Study with background music', 'Join discussion groups', 'Read aloud to yourself'],
         icon: '👂'
     },
     kinesthetic: {
         title: 'Kinesthetic Learner',
-        description: 'You learn best through hands-on activities and movement.',
+        description: 'You learn best through hands-on activities, movement, and real-life examples.',
+        strengths: ['Good at learning by doing', 'Strong physical memory', 'Enjoys practical tasks'],
+        challenges: ['May find long lectures boring', 'Needs frequent movement to stay engaged'],
         tips: ['Take breaks to move around', 'Use manipulatives', 'Act out concepts', 'Study while walking'],
         icon: '🤸'
+    },
+    readingWriting: {
+        title: 'Reading/Writing Learner',
+        description: 'You learn best through reading text and writing notes.',
+        strengths: ['Good at remembering written information', 'Strong note-taking skills', 'Enjoys research and writing'],
+        challenges: ['May get bored with visual or auditory-only formats', 'Needs quiet space for deep reading'],
+        tips: ['Rewrite notes in your own words', 'Read textbooks and articles', 'Summarize what you’ve learned', 'Use bullet points and lists'],
+        icon: '📖'
+    },
+    multimodal: {
+        title: 'Multimodal Learner',
+        description: 'You learn best using a combination of different styles.',
+        strengths: ['Flexible in learning approaches', 'Adapts to different teaching styles', 'Can switch strategies easily'],
+        challenges: ['May get overwhelmed by too many resources', 'Needs to find the right balance of styles'],
+        tips: ['Mix visual, auditory, and kinesthetic activities', 'Review information in multiple formats', 'Change study methods based on the topic', 'Identify which style works best for each subject'],
+        icon: '🌈'
     }
 };
+
 
 export default function QuizResults({ result, onRetakeQuiz, onSaveResult }) {
     const personalityInfo = PERSONALITY_DESCRIPTIONS[result.mbti_type] || PERSONALITY_DESCRIPTIONS['ENFJ'];
