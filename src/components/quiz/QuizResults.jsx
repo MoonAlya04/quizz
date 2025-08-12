@@ -1,16 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-// import { CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-// import { Badge } from '@/components/ui/badge';
-// import { Progress } from '@/components/ui/progress';
-// import { Button } from '@/components/ui/Button';
 import { Share2, Download, RefreshCw, Sparkles } from 'lucide-react';
 import QuizMascot from './QuizMascot';
 import Button from '../ui/Button';
 import Badge from '../ui/Badge';
 import Progress from '../ui/progress';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/Cards';
-// import { Card } from '../ui/Cards';
 
 const PERSONALITY_DESCRIPTIONS = {
     'ENFJ': {
@@ -27,8 +22,106 @@ const PERSONALITY_DESCRIPTIONS = {
         challenges: ['May procrastinate on routine tasks', 'Perfectionist tendencies', 'Overwhelmed by too much stimulation'],
         tips: ['Create quiet study spaces', 'Use mind maps', 'Take regular breaks', 'Set realistic goals']
     },
-    // Add more personality types as needed
+    'ENFP': {
+        title: 'The Curious Explorer',
+        description: 'You are energized by new ideas and enjoy connecting concepts in unexpected ways.',
+        strengths: ['Enthusiastic learner', 'Creative connections', 'Great at brainstorming', 'Strong communication skills'],
+        challenges: ['Difficulty focusing on one task', 'Prone to distractions', 'May overcommit'],
+        tips: ['Use timers to stay on track', 'Limit multitasking', 'Choose a few key projects', 'Review progress weekly']
+    },
+    'INFP': {
+        title: 'The Idealistic Scholar',
+        description: 'You seek learning that aligns with your values and inspires personal growth.',
+        strengths: ['Passionate about meaningful topics', 'Strong imagination', 'Empathetic listener', 'Deep thinking'],
+        challenges: ['May avoid tasks that feel meaningless', 'Easily discouraged by criticism', 'Can overthink decisions'],
+        tips: ['Connect studies to personal values', 'Seek constructive feedback', 'Set small achievable goals', 'Balance idealism with practicality']
+    },
+    'ENTJ': {
+        title: 'The Strategic Leader',
+        description: 'You approach learning with clear goals and a plan to achieve them efficiently.',
+        strengths: ['Goal-oriented', 'Excellent at organizing resources', 'Strong decision-making', 'Thrives under pressure'],
+        challenges: ['Impatient with slower learners', 'May overlook emotional needs', 'Can be overly critical'],
+        tips: ['Practice active listening', 'Allow time for reflection', 'Celebrate small wins', 'Encourage team collaboration']
+    },
+    'INTJ': {
+        title: 'The Master Planner',
+        description: 'You excel at creating structured learning paths and long-term strategies.',
+        strengths: ['Excellent strategic thinking', 'Self-disciplined', 'Independent learner', 'Analytical skills'],
+        challenges: ['May become perfectionistic', 'Reluctant to change plans', 'Can seem distant'],
+        tips: ['Stay open to feedback', 'Break large goals into steps', 'Balance planning with flexibility', 'Engage in group discussions']
+    },
+    'ENTP': {
+        title: 'The Visionary Innovator',
+        description: 'You thrive on exploring new ideas and challenging conventional thinking.',
+        strengths: ['Quick thinker', 'Great at brainstorming', 'Adapts easily', 'Persuasive communicator'],
+        challenges: ['May jump between tasks too quickly', 'Can overlook details', 'Easily bored'],
+        tips: ['Set deadlines', 'Break ideas into action steps', 'Collaborate with detail-oriented people', 'Balance creativity with execution']
+    },
+    'INTP': {
+        title: 'The Analytical Thinker',
+        description: 'You love diving deep into concepts, theories, and problem-solving.',
+        strengths: ['Logical reasoning', 'Independent research', 'Strong problem-solving skills', 'Curious mind'],
+        challenges: ['May struggle with follow-through', 'Can overanalyze', 'May lose track of time'],
+        tips: ['Use checklists', 'Set realistic deadlines', 'Explain concepts to others', 'Alternate theory with practice']
+    },
+    'ESFJ': {
+        title: 'The Supportive Guide',
+        description: 'You learn best when helping others and creating a harmonious environment.',
+        strengths: ['Empathetic', 'Team-oriented', 'Organized', 'Encouraging to peers'],
+        challenges: ['May prioritize others over self', 'Sensitive to criticism', 'Avoids conflict'],
+        tips: ['Schedule self-study time', 'Accept constructive feedback', 'Set personal boundaries', 'Recognize your own achievements']
+    },
+    'ISFJ': {
+        title: 'The Dedicated Student',
+        description: 'You approach learning with patience, responsibility, and a desire to help.',
+        strengths: ['Strong memory', 'Reliable', 'Detail-oriented', 'Compassionate'],
+        challenges: ['Can become overcommitted', 'Resists change', 'Self-critical'],
+        tips: ['Practice saying no', 'Embrace new methods', 'Acknowledge progress', 'Balance study with rest']
+    },
+    'ESFP': {
+        title: 'The Energetic Performer',
+        description: 'You bring enthusiasm and fun to learning, often thriving in hands-on activities.',
+        strengths: ['People skills', 'Adaptable', 'Enthusiastic', 'Practical problem solver'],
+        challenges: ['May struggle with routine tasks', 'Easily distracted', 'Dislikes strict schedules'],
+        tips: ['Incorporate movement into learning', 'Use interactive tools', 'Break tasks into short sessions', 'Celebrate progress']
+    },
+    'ISFP': {
+        title: 'The Gentle Creator',
+        description: 'You learn best through personal experience and creative expression.',
+        strengths: ['Creative thinking', 'Empathy', 'Adaptability', 'Attention to detail'],
+        challenges: ['Avoids confrontation', 'May lack long-term planning', 'Overly modest'],
+        tips: ['Set clear deadlines', 'Share your work for feedback', 'Mix creative and structured tasks', 'Practice self-promotion']
+    },
+    'ESTJ': {
+        title: 'The Organized Manager',
+        description: 'You excel at setting goals, following schedules, and sticking to proven methods.',
+        strengths: ['Efficient', 'Detail-oriented', 'Reliable leader', 'Strong sense of duty'],
+        challenges: ['May resist untested ideas', 'Impatient with flexibility', 'Can be overly strict'],
+        tips: ['Stay open to experimentation', 'Balance work with rest', 'Encourage input from others', 'Celebrate creativity']
+    },
+    'ISTJ': {
+        title: 'The Methodical Learner',
+        description: 'You prefer clear instructions, proven methods, and well-organized study plans.',
+        strengths: ['Strong memory', 'Dependable', 'Thorough', 'Practical'],
+        challenges: ['Resistant to change', 'May struggle with ambiguity', 'Overly cautious'],
+        tips: ['Try new learning styles occasionally', 'Seek diverse perspectives', 'Balance planning with action', 'Reward yourself for progress']
+    },
+    'ESTP': {
+        title: 'The Dynamic Doer',
+        description: 'You learn best through action, experimentation, and real-world challenges.',
+        strengths: ['Quick decision-making', 'Adaptable', 'Energetic', 'Practical problem solving'],
+        challenges: ['Impatient with theory', 'May act without full preparation', 'Easily bored'],
+        tips: ['Pair action with reflection', 'Set short-term goals', 'Work with detail-oriented partners', 'Track progress regularly']
+    },
+    'ISTP': {
+        title: 'The Practical Engineer',
+        description: 'You enjoy learning by doing, solving problems with logic and hands-on experience.',
+        strengths: ['Technical skills', 'Analytical thinking', 'Independent', 'Adaptable'],
+        challenges: ['May avoid theory', 'Reluctant to plan ahead', 'Dislikes routine'],
+        tips: ['Mix hands-on work with conceptual learning', 'Plan for long-term projects', 'Document your processes', 'Collaborate with others for new ideas']
+    }
 };
+
 
 const LEARNING_STYLE_DESCRIPTIONS = {
     visual: {

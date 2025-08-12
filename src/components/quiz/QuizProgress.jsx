@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Progress from '../ui/progress';
-// import { Progress } from '@/components/ui/progress';
 
 export default function QuizProgress({ currentQuestion, totalQuestions }) {
     const percentage = (currentQuestion / totalQuestions) * 100;
